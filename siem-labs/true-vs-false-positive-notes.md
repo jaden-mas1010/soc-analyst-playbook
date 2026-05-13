@@ -87,3 +87,22 @@ It’s almost always a true positive.
 ## Examples From Real SOC Work
 
 ### False Positive Example
+powershell.exe -ExecutionPolicy Bypass -File backup.ps1
+
+Code
+Backup script running daily — normal.
+
+### True Positive Example
+powershell.exe -nop -w hidden -enc <base64>
+
+Code
+Encoded command + hidden window — suspicious.
+
+---
+
+## Key Takeaways
+- Most alerts are false positives  
+- Context is the most important factor  
+- Command line and parent process reveal intent  
+- True positives show clear signs of malicious behavior  
+- Good analysts reduce noise and focus on real threat
