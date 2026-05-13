@@ -89,4 +89,52 @@ Malware loves Temp folders.
 
 ### 🔥 3. Rundll32 with Strange Arguments
 `rundll32.exe javascript:"\..\mshtml,RunHTMLApplication"`  
-Used for file
+Used for fileless malware.
+
+### 🔥 4. PowerShell with Encoded Commands
+`powershell.exe -enc <base64>`  
+Almost always malicious.
+
+### 🔥 5. Unexpected Parent Process
+`svchost.exe → cmd.exe`  
+`explorer.exe → wmic.exe`  
+These chains are abnormal.
+
+---
+
+## 5. Useful Splunk Queries for Process Investigation
+
+### Find all PowerShell executions
+
+
+
+
+
+index=windows EventCode=4688 NewProcessName="powershell.exe"
+
+Code
+
+### Find encoded PowerShell
+index=windows EventCode=4688 CommandLine="enc"
+
+Code
+
+### Find suspicious parent-child chains
+index=windows EventCode=4688
+| table ParentProcessName, NewProcessName, CommandLine
+
+Code
+
+### Find processes running from Temp
+index=windows EventCode=4688 CommandLine="\\Temp\\"
+
+Code
+
+---
+
+## 6. Key Takeaways
+- Parent-child relationships reveal attacker behavior  
+- Command-line arguments are the strongest indicator of intent  
+- LOLBins are powerful but dangerous when misused  
+- Sysmon provides the best visibility  
+- Process investigation is essential for detecting
