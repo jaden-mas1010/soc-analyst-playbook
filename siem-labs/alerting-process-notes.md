@@ -79,4 +79,31 @@ This is where TP vs FP is decided.
 ---
 
 ## 7. Response Actions
-If the alert
+If the alert is a **True Positive**, actions may include:
+- Isolating the host
+- Blocking an IP or domain
+- Resetting credentials
+- Killing a process
+- Escalating to IR team
+
+If it’s a **False Positive**, the rule may be tuned.
+
+---
+
+## 8. Rule Tuning (Optional)
+To reduce noise, analysts may:
+- Add exclusions
+- Adjust thresholds
+- Add context (e.g., known admin tools)
+- Improve correlation logic
+
+Good tuning = fewer useless alerts.
+
+---
+
+## Key Takeaways
+- Alerts are generated only when rule logic matches event data
+- Correlation helps detect multi‑step attacks
+- Enrichment adds context for faster triage
+- Analysts decide TP vs FP
+- Tuning improves SIEM accuracy and reduces noise
