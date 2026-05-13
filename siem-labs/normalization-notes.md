@@ -47,3 +47,37 @@ These fields stay the same no matter where the log came from.
 ## Example of Normalization
 
 ### Raw Windows Log
+### Raw Windows Log
+Event ID: 4625
+Account Name: chris
+Logon Type: 3
+Source Network Address: 10.0.0.5
+
+Code
+
+### Normalized Version
+event_type: failed_login
+username: chris
+source_ip: 10.0.0.5
+logon_type: network
+
+Code
+
+---
+
+## Benefits for Analysts
+Normalization helps analysts:
+- Search faster  
+- Build better detection rules  
+- Compare logs from different systems  
+- Understand events without knowing vendor formats  
+
+It also reduces the learning curve for new SOC analysts.
+
+---
+
+## Key Takeaways
+- Normalization converts messy logs into a clean, consistent structure  
+- It makes correlation and detection possible  
+- It improves alert quality and reduces noise  
+- It’s one of the most important parts of SIEM processing
